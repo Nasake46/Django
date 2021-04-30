@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 import debug_toolbar
 from django.conf import settings
+from paste.api import router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('paste/', include('paste.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
+    path("api/", include(router.urls)),
 ]
