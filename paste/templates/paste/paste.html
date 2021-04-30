@@ -1,13 +1,7 @@
 {% extends "paste/base.html" %}
+{% load paste_extra %}
+{% block title %} paste {% endblock %}
 
 {% block body %}
-Bienvenue dans Paste
-<ul>    
-    {% for paste in pastes %}
-    <li>
-        <a href="/paste/{{ paste.url }}">{{ paste.url }}</a>
-    </li>
-    {% endfor %}
-</ul>
+{{ paste.content | markdown }}
 {% endblock %}
-
